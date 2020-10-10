@@ -13,15 +13,15 @@ import java.io.InputStreamReader;
  * @author yamyyack
  */
 public class Devoir1 {
-    
-    
-    
-public static void main(String[] args) throws IOException
+
+
+
+    public static void main(String[] args) throws IOException
     {
         BufferedReader reader =
-                   new BufferedReader(new InputStreamReader(System.in));
+                new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
-        System.out.println(name);       
+        System.out.println(name);
     }
-    
+
 }
