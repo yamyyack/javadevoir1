@@ -14,7 +14,17 @@ import java.io.InputStreamReader;
  */
 public class Devoir1 {
 
+    public String palindrome(String str, int start, int end, int center){
 
+        if (str.charAt[end]==str.charAt[end+1]) {
+            return palindrome(str, start-1, end+1, center);
+
+        }else if(start+1 == end+1){
+            return palindrome(str, start-1, end+1, center);
+        }else{
+
+        }
+    }
 
     public static void main(String[] args) throws IOException
     {
