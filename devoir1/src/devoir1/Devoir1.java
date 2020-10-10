@@ -14,15 +14,30 @@ import java.io.InputStreamReader;
  */
 public class Devoir1 {
 
-    public String palindrome(String str, int start, int end, int center){
+    public static String palindrome(String str, int start, int end, int center){
+        try{
+            //exit recursion (doesnt work)
+            if(start < 0 || end >= str.length())
+            {
+                return str.substring(start+1, end-1);
+            }
+            //check if the character next to it is the same (aaa)
+            if (str.charAt(end)==str.charAt(end+1)) {
+                return palindrome(str, start, end+1, center);
 
-        if (str.charAt[end]==str.charAt[end+1]) {
-            return palindrome(str, start-1, end+1, center);
-
-        }else if(start+1 == end+1){
-            return palindrome(str, start-1, end+1, center);
-        }else{
-
+            }
+            //checks to see if both ajacent are the same (aba)
+            else if(str.charAt(start-1) == str.charAt(end+1)){
+                return palindrome(str, start-1, end+1, center);
+            }
+            //if non are move to next starting character
+            else{
+                return palindrome(str, center+1, center+1, center+1);
+            }
+        }
+        catch(StringIndexOutOfBoundsException e)
+        {
+            return palindrome(str, center+1, center+1, center+1);
         }
     }
 
@@ -31,7 +46,7 @@ public class Devoir1 {
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
-        System.out.println(name);
+        System.out.println(palindrome(name,0,0,0));
     }
 
 }
