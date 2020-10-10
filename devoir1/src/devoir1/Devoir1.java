@@ -5,6 +5,10 @@
  */
 package devoir1;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author yamyyack
@@ -14,8 +18,10 @@ public class Devoir1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader =
+                   new BufferedReader(new InputStreamReader(System.in));
+        String name = reader.readLine();
+        System.out.println(name);       
     }
-    
 }
