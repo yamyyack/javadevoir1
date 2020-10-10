@@ -13,13 +13,15 @@ import java.io.InputStreamReader;
  * @author yamyyack
  */
 public class Devoir1 {
+    private static String OldWord = "";
 
     public static String palindrome(String str, int start, int end, int center){
         try{
             //exit recursion (doesnt work)
-            if(start < 0 || end >= str.length())
+            if(center > str.length() - 1)
             {
-                return str.substring(start+1, end-1);
+                return OldWord;
+                
             }
             //check if the character next to it is the same (aaa)
             if (str.charAt(end)==str.charAt(end+1)) {
@@ -32,13 +34,25 @@ public class Devoir1 {
             }
             //if non are move to next starting character
             else{
+                getword(str, start, end);
                 return palindrome(str, center+1, center+1, center+1);
             }
         }
         catch(StringIndexOutOfBoundsException e)
         {
+            if(center != 0 && center != str.length())
+                getword(str, start, end);
             return palindrome(str, center+1, center+1, center+1);
         }
+    }
+    
+    public static void getword(String str, int start, int end)
+    {
+        String NewWord = str.substring(start, end+1);
+        if(NewWord.length() > OldWord.length()){
+            OldWord = NewWord;
+        }
+        
     }
 
     public static void main(String[] args) throws IOException
