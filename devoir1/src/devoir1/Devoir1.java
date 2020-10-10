@@ -16,6 +16,8 @@ public class Devoir1 {
     private static String OldWord = "";
 
     public static String palindrome(String str, int start, int end, int center){
+
+
         try{
             //exit recursion (doesnt work)
             if(center > str.length() - 1)
@@ -24,9 +26,8 @@ public class Devoir1 {
                 
             }
             //check if the character next to it is the same (aaa)
-            if (str.charAt(end)==str.charAt(end+1)) {
-                return palindrome(str, start, end+1, center);
-
+            if(str.charAt(center)==str.charAt(center+1)){
+                return palindrome(str, start, end+1,center+1);
             }
             //checks to see if both ajacent are the same (aba)
             else if(str.charAt(start-1) == str.charAt(end+1)){
@@ -43,6 +44,7 @@ public class Devoir1 {
             if(center != 0 && center != str.length())
                 getword(str, start, end);
             return palindrome(str, center+1, center+1, center+1);
+
         }
     }
     
@@ -61,6 +63,7 @@ public class Devoir1 {
                 new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
         System.out.println(palindrome(name,0,0,0));
+        System.out.println(OldWord.length());
     }
 
 }
