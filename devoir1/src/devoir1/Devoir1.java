@@ -41,7 +41,7 @@ public class Devoir1 {
         }
         catch(StringIndexOutOfBoundsException e)
         {
-            if(center != 0 && center != str.length())
+            if(center != str.length())
                 getword(str, start, end);
             return palindrome(str, center+1, center+1, center+1);
 
