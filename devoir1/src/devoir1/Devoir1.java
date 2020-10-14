@@ -20,7 +20,7 @@ public class Devoir1 {
         palindrome(String str, int start, int end, int center){
             
         try{
-            //exit recursion (doesnt work)
+            //exit recursion
             if(center > str.length() - 1)
             {
                 return WordList;
@@ -42,8 +42,7 @@ public class Devoir1 {
         //si la position desirer est pas dispobible (position -1)
         catch(StringIndexOutOfBoundsException e)
         {
-            if(center != str.length())
-                setword(str, start, end);
+            setword(str, start, end);
             return palindrome(str, center+1, center+1, center+1);
 
         }
